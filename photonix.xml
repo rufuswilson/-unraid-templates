@@ -1,21 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Containers>
-  <TemplateURL>https://raw.githubusercontent.com/rufuswilson/unraid-templates/main/photonix.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>MediaApp:Photos MediaServer:Photos</Category>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>rw-photonix</Name>
-  <Description>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Description>
-  <Overview>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Overview>
-  <Support></Support>
+  <Repository>spaceinvaderone/beep_music_converter</Repository>
   <Registry>https://hub.docker.com/r/photonixapp/photonix/</Registry>
   <GitHub>https://github.com/photonixapp/photonix</GitHub>
-  <Repository>photonixapp/photonix</Repository>
+  <Support/>
   <Project>https://photonix.org/</Project>
+  <Category>MediaApp:Photos MediaServer:Photos</Category>
+  <Description>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Description>
+  <Overview>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Overview>
+  <TemplateURL>https://raw.githubusercontent.com/rufuswilson/unraid-templates/main/photonix.xml</TemplateURL>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <Icon>https://photonix.org/docs/img/favicon.png</Icon>
-  <ExtraParams></ExtraParams>
+  <MyIP/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled></DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <ExtraParams/>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <Beta>false</Beta>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -30,70 +36,87 @@
     <Variable>
       <Name>ENV</Name>
       <Value>prd</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>DEMO</Name>
       <Value>0</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>SAMPLE_DATA</Name>
       <Value>0</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>ALLOWED_HOSTS</Name>
       <Value>*</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>ADMIN_USERNAME</Name>
       <Value></Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>ADMIN_PASSWORD</Name>
       <Value></Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>POSTGRES_HOST</Name>
       <Value>postgres</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>POSTGRES_DB</Name>
       <Value>photonix</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>POSTGRES_USER</Name>
       <Value>postgres</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>POSTGRES_PASSWORD</Name>
       <Value>postgres</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>POSTGRES_PORT</Name>
       <Value>5432</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>REDIS_HOST</Name>
       <Value>redis</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>REDIS_PORT</Name>
       <Value>6379</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>REDIS_DB</Name>
       <Value>0</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>DJANGO_SECRET_KEY</Name>
       <Value></Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>LOG_LEVEL</Name>
       <Value>INFO</Value>
+      <Mode/>
     </Variable>
     <Variable>
       <Name>DJANGO_LOG_LEVEL</Name>
       <Value>WARNING</Value>
+      <Mode/>
     </Variable>
   </Environment>
   <Data>
@@ -140,4 +163,4 @@
   <Config Name="Django Secret Key" Target="DJANGO_SECRET_KEY" Default="" Mode="" Description="Sets value for Django to use as a secret key (sessions, hashing, signing etc.). By default we automatically generate a cryptographically secure key on first run and store it in Redis for future." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
   <Config Name="Log Level" Target="LOG_LEVEL" Default="INFO" Mode="" Description="Determines what level of logging to output to terminal." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
   <Config Name="Django Log Level" Target="DJANGO_LOG_LEVEL" Default="WARNING" Mode="" Description="Determines what level of Django logging to output to terminal." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
-</Containers>
+</Container>
