@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <TemplateURL>https://raw.githubusercontent.com/rufuswilson/unraid-templates/main/photonix.xml</TemplateURL>
+  <Beta>True</Beta>
+  <Category>MediaApp:Photos MediaServer:Photos</Category>
+  <Name>rw-photonix</Name>
+  <Description>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Description>
+  <Overview>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Overview>
+  <Support></Support>
+  <Registry>https://hub.docker.com/r/photonixapp/photonix/</Registry>
+  <GitHub>https://github.com/photonixapp/photonix</GitHub>
+  <Repository>photonixapp/photonix</Repository>
+  <Project>https://photonix.org/</Project>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Icon>https://photonix.org/docs/img/favicon.png</Icon>
+  <ExtraParams></ExtraParams>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>ENV</Name>
+      <Value>prd</Value>
+    </Variable>
+    <Variable>
+      <Name>DEMO</Name>
+      <Value>0</Value>
+    </Variable>
+    <Variable>
+      <Name>SAMPLE_DATA</Name>
+      <Value>0</Value>
+    </Variable>
+    <Variable>
+      <Name>ALLOWED_HOSTS</Name>
+      <Value>*</Value>
+    </Variable>
+    <Variable>
+      <Name>ADMIN_USERNAME</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>ADMIN_PASSWORD</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_HOST</Name>
+      <Value>postgres</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_DB</Name>
+      <Value>photonix</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_USER</Name>
+      <Value>postgres</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_PASSWORD</Name>
+      <Value>postgres</Value>
+    </Variable>
+    <Variable>
+      <Name>POSTGRES_PORT</Name>
+      <Value>5432</Value>
+    </Variable>
+    <Variable>
+      <Name>REDIS_HOST</Name>
+      <Value>redis</Value>
+    </Variable>
+    <Variable>
+      <Name>REDIS_PORT</Name>
+      <Value>6379</Value>
+    </Variable>
+    <Variable>
+      <Name>REDIS_DB</Name>
+      <Value>0</Value>
+    </Variable>
+    <Variable>
+      <Name>DJANGO_SECRET_KEY</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>LOG_LEVEL</Name>
+      <Value>INFO</Value>
+    </Variable>
+    <Variable>
+      <Name>DJANGO_LOG_LEVEL</Name>
+      <Value>WARNING</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user</HostDir>
+      <ContainerDir>/data/photos</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/data/raw-photos-processed</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/data/cache</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/data/models</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Config Name="Webui Port" Target="80" Default="8080" Mode="tcp" Description="External WebUI Port" Type="Port" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Photos" Target="/data/photos" Default="/mnt/user" Mode="rw" Description="Container Path: /data/photos" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Raw Photos" Target="/data/raw-photos-processed" Default="" Mode="rw" Description="Container Path: /data/raw-photos-processed" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Cache" Target="/data/cache" Default="" Mode="rw" Description="Container Path: /data/cache" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Models" Target="/data/models" Default="" Mode="rw" Description="Container Path: /data/models" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Environment" Target="ENV" Default="prd" Mode="" Description="(prd or dev) In prd mode, running code and services are as optimised as possible. Running in dev mode enables features like Webpack/React hot module reloading (HMR), Django Runserver (code auto-reloading), Storybook server etc." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Demo Mode" Target="DEMO" Default="0" Mode="" Description="Starts the environment with a demo user account, library and downloads some demo photos. This is how the demo at https://demo.photonix.org/ runs" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Sample Data" Target="SAMPLE_DATA" Default="0" Mode="" Description="Creates same account, library and photos as in DEMO mode but still allows you to make modifying changes as a user (most useful for developers)." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Admin Username" Target="ADMIN_USERNAME" Default="" Mode="" Description="Creates a username for the admin user on first run" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Admin Password" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Sets password for the admin user on first run. If this is set but ADMIN_USERNAME is not, the username will be admin" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Postgres Host" Target="POSTGRES_HOST" Default="postgres" Mode="" Description="Host name for Postgres database instance." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Postgres Database" Target="POSTGRES_DB" Default="photonix" Mode="" Description="Database name for Postgres database instance, will be auto-created on first run if it doesn't exist." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Postgres User" Target="POSTGRES_USER" Default="postgres" Mode="" Description="Username for Postgres database." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Postgres Password" Target="POSTGRES_PASSWORD" Default="postgres" Mode="" Description="Password for Postgres database." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Postgres Port" Target="POSTGRES_PORT" Default="5432" Mode="" Description="Port for Postgres database." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Redis Host" Target="REDIS_HOST" Default="redis" Mode="" Description="Redis hostname, used for resource locking." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Redis Port" Target="REDIS_PORT" Default="6379" Mode="" Description="Redis port number." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Redis Database" Target="REDIS_DB" Default="0" Mode="" Description="Redis database number." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Allowed Hosts" Target="ALLOWED_HOSTS" Default="'*'" Mode="" Description="Restricts access for Django backend to be accessed from just a certain hostname." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+  <Config Name="Django Secret Key" Target="DJANGO_SECRET_KEY" Default="" Mode="" Description="Sets value for Django to use as a secret key (sessions, hashing, signing etc.). By default we automatically generate a cryptographically secure key on first run and store it in Redis for future." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+  <Config Name="Log Level" Target="LOG_LEVEL" Default="INFO" Mode="" Description="Determines what level of logging to output to terminal." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+  <Config Name="Django Log Level" Target="DJANGO_LOG_LEVEL" Default="WARNING" Mode="" Description="Determines what level of Django logging to output to terminal." Type="Variable" Display="always" Required="false" Mask="false">*</Config>
+</Containers>
