@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Containers>
   <TemplateURL>https://raw.githubusercontent.com/rufuswilson/unraid-templates/main/photonix.xml</TemplateURL>
-  <Beta>True</Beta>
+  <Beta>False</Beta>
   <Category>MediaApp:Photos MediaServer:Photos</Category>
   <Name>rw-photonix</Name>
   <Description>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Description>
