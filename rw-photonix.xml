@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>rw-photonix</Name>
-  <Repository>spaceinvaderone/beep_music_converter</Repository>
+  <Repository>cedev/rw-photonix</Repository>
   <Registry>https://hub.docker.com/r/photonixapp/photonix/</Registry>
   <GitHub>https://github.com/photonixapp/photonix</GitHub>
   <Support/>
