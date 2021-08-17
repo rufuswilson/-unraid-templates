@@ -3,6 +3,7 @@
   <Name>rw-photonix</Name>
   <Overview>Photonix is a photo management application that streamlines the process of storing, presenting and re-discovering photos. Once set up it will ingest all the photos in your collection and start building up an image database of everything you could want to search and filter by. It makes your entire collection available to you, whichever device you’re using — as long as you can get to a web browser.</Overview>
   <Registry>https://hub.docker.com/r/photonixapp/photonix/</Registry>
+  <Repository>photonixapp/photonix</Repository>
   <Privileged>false</Privileged>
   <Support>URL TO BE FILLED IN</Support>
   <Network>bridge</Network>
