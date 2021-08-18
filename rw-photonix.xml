@@ -5,11 +5,12 @@
   <Registry>https://hub.docker.com/r/photonixapp/photonix/</Registry>
   <Repository>photonixapp/photonix</Repository>
   <Privileged>false</Privileged>
-  <Support>URL TO BE FILLED IN</Support>
+  <Support>https://forums.unraid.net/topic/112590-support-cedev-photonix/</Support>
   <Network>bridge</Network>
   <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <Icon>https://photonix.org/docs/img/favicon.png</Icon>
   <Category>MediaApp:Photos MediaServer:Photos Status:Stable</Category>
+  <Requires>**PostgreSQL** database *and* **redis** cache</Requires>
 
   <Config Type="Port" Display="always-hide" Required="false" Mask="false" Mode="tcp" Name="Webui Port" Target="80" Default="8080" Description="External WebUI Port"></Config>
   <Config Type="Path" Display="always-hide" Required="false" Mask="false" Mode="rw" Name="Photos" Target="/data/photos" Default="/mnt/user" Description="Container Path: /data/photos"></Config>
